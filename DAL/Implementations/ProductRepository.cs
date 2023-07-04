@@ -13,8 +13,8 @@ namespace DAL.Implementations
 {
     public class ProductRepository : IProductRepository
     {
-       public IConfiguration _configuration { get; }
-       public  string ConnectionString;
+        private readonly IConfiguration _configuration;
+       private readonly  string ConnectionString;
         public ProductRepository(IConfiguration configuration)
         {
             _configuration = configuration;
