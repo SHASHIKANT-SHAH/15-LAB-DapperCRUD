@@ -1,0 +1,28 @@
+﻿@model DAL.Entities.Product
+@{
+    ViewData["Title"] = Model != null ? "Edit" : "Create";
+}
+<h3>@ViewData["Title"]</h3>
+<form asp-action="@ViewData["Title"]" method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select class="form-select" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId","Name"))">
+            <option>--Select--</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Unit Price</label>
+        <input type="text" class="form-control" asp-for="UnitPrice">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-action="Index" asp-controller="Product" class="btn btn-warning">Cancel</a>
+</form> 
